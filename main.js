@@ -183,18 +183,36 @@ function showConfirmModal(message, onConfirm) {
 
 // เพิ่มฟังก์ชัน Fullscreen Toggle
 function toggleFullScreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen().catch(err => {
-      alert(`ไม่สามารถเข้าสู่โหมดเต็มหน้าจอ: ${err.message}`);
-    });
+  const elem = document.documentElement; // หรือ document.body ก็ได้
+
+  if (!document.fullscreenElement &&
+      !document.webkitFullscreenElement &&
+      !document.msFullscreenElement) {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen(); // iOS Safari
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen(); // IE/Edge
+    }
   } else {
-    document.exitFullscreen();
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) {
+      document.webkitExitFullscreen(); // iOS Safari
+    } else if (document.msExitFullscreen) {
+      document.msExitFullscreen(); // IE/Edge
+    }
   }
 }
 
+
 // ผูกปุ่มกับฟังก์ชัน
 const fullscreenBtn = document.getElementById('fullscreen-actions');
-fullscreenBtn.addEventListener('click', toggleFullScreen);
+if (fullscreenBtn) {
+  fullscreenBtn.addEventListener('click', toggleFullScreen);
+}
+
 
 
 /**
