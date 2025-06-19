@@ -1,155 +1,184 @@
-<!DOCTYPE html>
-<html lang="th">
+<!DOCTYPE html> <!-- กำหนดว่าเป็น HTML5 -->
+<html lang="th"> <!-- ใช้ภาษาไทยสำหรับเว็บไซต์ -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LS QUICKMARK v1.0</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8"> <!-- การเข้ารหัสตัวอักษรแบบ UTF-8 รองรับภาษาไทย -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ทำให้รองรับการแสดงผลในอุปกรณ์มือถือ -->
+  <title>LS QUICKMARK v1.0</title> <!-- ชื่อเว็บที่แสดงบนแท็บเบราว์เซอร์ -->
+  <link rel="stylesheet" href="style.css"> <!-- ลิงก์ไฟล์ CSS ภายนอก -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap"> <!-- โหลดฟอนต์ Montserrat -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> <!-- ใช้ไอคอนจาก Google -->
+
+
+
 </head>
 <body>
 
-<header>
-  <div class="header-row">
-    <span class="brand-title">LS QUICKMARK v1.0</span>
-    <div class="header-actions">
-    <button class="import-button">Import</button>
-    <button class="export-button">Export</button>
-  </div>
-</div>
-
+  <header> <!-- ส่วนหัวของเว็บ -->
+    <div class="header-row">
+      <span class="brand-title">LS QUICKMARK v1.0</span>
+      <div class="header-actions">
+        <button class="import-button">Import</button>
+        <button class="export-button">Export</button>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-<main>
-  <div id="session-setting-wrapper">
-  <section id="session-setting">
-    <form id="sessionForm">
-      <div class="form-group">
-        <input type="text" id="sessionName" name="sessionName" placeholder="Session Name" />
+  <main> <!-- เนื้อหาหลักของเว็บ -->
+    <div id="project-setting-wrapper">
+      <section id="project-setting">
+        <form id="projectForm"> <!-- แบบฟอร์มกรอกข้อมูลโปรเจกต์ -->
+
+          <div class="form-group"> <!-- ช่องกรอกชื่อ BU -->
+            <input type="text" id="projectBU" name="ProjectBU" placeholder="BU" />
+          </div>
+
+          <div class="form-group"> <!-- เลือกประเภทโปรเจกต์ -->
+            <select name="projectType" required>
+              <option value="" disabled selected>Type</option>
+              <option value="E-Learning">E-Learning</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Interview">Interview</option>
+              <option value="Podcast">Podcast</option>
+            </select>
+          </div>
+
+          <div class="form-group"> <!-- ช่องกรอกชื่อโปรเจกต์ -->
+            <input type="text" id="projectName" name="projectName" placeholder="Name" />
+          </div>
+
+          <div class="form-group"> <!-- ช่องกรอกหมายเลขโปรเจกต์ -->
+            <input type="projectNumber" id="projectNumber" name="projectNumber" placeholder="No." />
+          </div>
+
+          <div class="form-group"> <!-- ช่องเลือกวันที่โปรเจกต์ -->
+            <input type="date" id="projectDate" name="projectDate" placeholder="Date" /> 
+          </div>
+
+          <div class="form-group"> <!-- เลือก Timecode -->
+            <select name="timecode" required>
+              <option value="" disabled selected>Timecode</option>
+              <option value="CAP">CAP</option>
+              <option value="CAM">CAM</option>
+              <option value="SW">SW</option>
+            </select>
+          </div>
+
+          <div class="form-group"> <!-- เลือกประเภทเสียง -->
+            <select name="sound" required>
+              <option value="" disabled selected>Sound</option>
+              <option value="CAP">CAP</option>
+              <option value="CAM">CAM</option>
+              <option value="SW">SW</option>
+            </select>
+          </div>
+
+          <div class="form-group"> <!-- เลือกชื่อช่างวิดีโอ -->
+            <select name="videographer" required>
+              <option value="" disabled selected>Videographer</option>
+              <option value="Wanattapong">Wanattapong</option>
+              <option value="Nattarin">Nattarin</option>
+              <option value="Ponlapat">Ponlapat</option>
+            </select>
+          </div>
+
+          <div class="form-group"> <!-- เลือกชื่อผู้ตัดต่อ -->
+            <select name="editor" required>
+              <option value="" disabled selected>Editor</option>
+              <option value="Wanat">Wanat</option>
+              <option value="Kitnarong">Kitnarong</option>
+              <option value="Chakrin">Chakrin</option>
+              <option value="Sasithorn">Sasithorn</option>
+              <option value="Kemmachart">Kemmachart</option>
+            </select>
+          </div>
+
+        </form>
+      </section>
+    </div>
+
+    <section id="table-section"> <!-- ส่วนแสดงตารางความคิดเห็น -->
+      <table id="timestamp-table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+      <div class="table-footer">
+        <button>Clear</button>
       </div>
-  <div class="form-group">
-        <select name="sessionType" required>
-          <option value="" disabled selected>Select Type</option>
-          <option value="E-Learning">E-Learning</option>
-          <option value="Workshop">Workshop</option>
-          <option value="Interview">Interview</option>
-          <option value="Podcast">Podcast</option>
-        </select>
-      <div class="form-group">
-  <select name="multimedia" required>
-        <option value="" disabled selected>Select Multimedia</option>
-          <option value="Wanattapong">Wanattapong</option>
-          <option value="Nattarin">Nattarin</option>
-          <option value="Ponlapat">Ponlapat</option>
-        </select>
+    </section>
+
+    <section id="time-control"> <!-- ส่วนควบคุมเวลา -->
+      <div id="timer-display">
+        <span class="time-part">00</span>
+        <span class="colon">:</span>
+        <span class="time-part">00</span>
+        <span class="colon">:</span>
+        <span class="time-part">00</span>
+        <span class="colon">:</span>
+        <span class="time-part">00</span>
       </div>
-    </form>
-  </section>
-
-
-  <section id="table-section">
-    <table id="timestamp-table">
-      <thead>
-        <tr>
-          <th>Timestamp</th>
-          <th>Comment</th>
-        </tr>
-      </thead>
-      <tbody>
-      </tbody>
-    </table>
-    <div class="table-footer">
-      <select>
-        <option>25</option>
-        <option>30</option>
-        <option>50</option>
-        <option>60</option>
+      <div class="button-group">
+        <button id="toggle-timer">Start</button>
+      </div>
+      <select> <!-- ตัวเลือก Frame Rate -->
+        <option>25 FPS</option>
+        <option>30 FPS</option>
+        <option>50 FPS</option>
+        <option>60 FPS</option>
       </select>
-    <button>Clear</button>
-</div>
-  </section>
+    </section>
 
+    <section id="comment-section"> <!-- ส่วนปุ่มคอมเมนต์ต่างๆ -->
+      <div class="comment-actions">
+        <button id="star-comment">Start</button>
+      </div>
 
-<section id="time-control">
-<div id="timer-display">
-  <span class="time-part">00</span>
-  <span class="colon">:</span>
-  <span class="time-part">00</span>
-  <span class="colon">:</span>
-  <span class="time-part">00</span>
-  <span class="colon">:</span>
-  <span class="time-part">00</span>
-</div>
+      <div class="comment-actions">
+        <button id="end-comment">End</button>
+      </div>
+      
+      <div class="comment-actions">
+        <button id="deadair-comment">Dead Air</button>
+      </div>
 
-  <div class="button-group">
-    <button id="toggle-timer">Start</button>
-    <button id="reset-timer">Reset</button>
-  </div>
-</section>
+      <div class="comment-actions">
+        <button id="techError-comment">Tech Error</button>
+      </div>
 
+      <div class="comment-actions">
+        <button id="activity-comment">Activity</button>
+      </div>
 
-  <section id="comment-section">
-    <div class="comment-group">
-      <input type="text" placeholder="Comment 1" />
-      <button>Send</button>
-    </div>
-    <div class="comment-group">
-      <input type="text" placeholder="Comment 2" />
-      <button>Send</button>
-    </div>
-    <div class="comment-group">
-      <input type="text" placeholder="Comment 3" />
-      <button>Send</button>
-    </div>
-    <div class="comment-group">
-      <input type="text" placeholder="Comment 4" />
-      <button>Send</button>
-    </div>
-    <div class="comment-actions">
-      <button id="start-comment">Start</button>
-      <button id="end-comment">End</button>
-    </div>
-  </section>
+      <div class="comment-actions">
+        <button id="note-comment">Note</button>
+      </div>
 
-  <section id="log-section">
-    <div id="log-info">
-      <div>Session Start: <span id="log-session-start">-</span></div>
-      <div>Total Comment: <span id="log-total-comment">0</span></div>
-    </div>
-    <div id="log-list">
-    </div>
-  </section>
-</main>
+      <div class="comment-group">
+        <input type="text" placeholder="Custom Comment" />
+        <button>Send</button>
+      </div>
+    </section>
 
-<div id="resetModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3>คุณต้องการ Reset จริงหรือไม่?</h3>
-    <div>
-      <button id="confirmResetBtn">ยืนยัน</button>
-      <button id="cancelResetBtn">ยกเลิก</button>
-    </div>
-  </div>
-</div>
+    <section id="log-section"> <!-- แสดงข้อมูลสรุป -->
+      <div id="log-info">
+        <div>Session Start: <span id="log-session-start">-</span></div>
+        <div>Total Comment: <span id="log-total-comment">0</span></div>
+      </div>
+      <div id="log-list">
+      </div>
+    </section>
 
-<div id="exportModal" class="modal" style="display:none;">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <h3>เลือกชนิดไฟล์ที่จะ Export</h3>
-    <div class="export-options">
-      <button class="export-option" data-type="csv">CSV</button>
-      <button class="export-option" data-type="srt">SRT</button>
-      <button class="export-option" data-type="pdf">PDF</button>
-      <button class="export-option" data-type="json">JSON</button>
-    </div>
-  </div>
-</div>
+  </main>
 
-<footer>
-  Powered By LEARN STUDIO
-</footer>
+  <footer> <!-- ส่วนท้ายของเว็บ -->
+    Powered By LEARN STUDIO
+  </footer>
 
+</body>
 </html>
+
