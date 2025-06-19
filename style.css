@@ -85,32 +85,36 @@ button.export-button:hover {
 }
 
 #project-setting-wrapper {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 16px;
-    }
-    #projectForm {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-    .form-group {
-      display: flex;
-      flex-direction: column;
-    }
-    .form-group input,
-    .form-group select {
-      padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 14px;
-    }
-    .form-group:nth-child(3) {
-      grid-column: 1 / 3;
-    }
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+#projectForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.form-group:nth-child(3) {
+  grid-column: 1 / 3;
+}
 
 /* project Setting */
- #project-setting input,
+#project-setting input,
 #project-setting select {
   padding: 6px 12px;
   border: none;
@@ -122,6 +126,39 @@ button.export-button:hover {
   transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
   box-sizing: border-box;
 }
+
+#project-setting input[type="date"] {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #727272;
+  border-radius: 24px;
+  padding: 6px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+#project-setting input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit {
+  color: #727272;
+}
+
+#project-setting input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit-text,
+#project-setting input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit-month-field,
+#project-setting input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit-day-field,
+#project-setting input[type="date"]:not(:focus):not(:valid)::-webkit-datetime-edit-year-field {
+  color: #727272;
+}
+
+#project-setting input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+}
+
+#project-setting input[type="date"]:focus {
+  color: #ffffff;
+}
+
+
 #project-setting input:focus,
 #project-setting input:not(:placeholder-shown),
 #project-setting select:focus {
@@ -130,6 +167,7 @@ button.export-button:hover {
   box-shadow: 0 0 0 2px rgba(168, 137, 255, 0.3);
   color: #ffffff;
 }
+
 #project-setting select {
   padding-right: 36px;
   appearance: none;
@@ -146,7 +184,7 @@ button.export-button:hover {
 /* Section: Table Display */
 #table-section {
   width: 100%;
-  max-width: 360px;
+  max-width: 480px;
   margin: 16px auto 24px;
   padding: 16px;
   background: linear-gradient(122.82deg, rgba(57, 48, 98, 0.6) 1.66%, rgba(40, 30, 73, 0.6) 104.61%);
@@ -158,7 +196,7 @@ button.export-button:hover {
 
 #table-section .table-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 12px;
 }
@@ -176,15 +214,25 @@ button.export-button:hover {
 }
 
 #table-section .table-footer button {
-  background: #ffffff;
-  color: #000;
-  font-size: 12px;
-  padding: 6px 12px;
+  background: #6a47ff;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 8px 14px;
   border: none;
   border-radius: 8px;
   font-family: 'Montserrat';
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#table-section .table-footer button:hover {
+  background-color: #856dff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(133, 109, 255, 0.3);
 }
 
 #timestamp-table {
@@ -222,7 +270,7 @@ button.export-button:hover {
 }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 520px) {
   .header-row {
     flex-direction: row;
     flex-wrap: wrap;
