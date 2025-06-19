@@ -112,26 +112,27 @@
       </div>
     </section>
 
-    <section id="time-control"> <!-- ส่วนควบคุมเวลา -->
-      <div id="timer-display">
-        <span class="time-part">00</span>
-        <span class="colon">:</span>
-        <span class="time-part">00</span>
-        <span class="colon">:</span>
-        <span class="time-part">00</span>
-        <span class="colon">:</span>
-        <span class="time-part">00</span>
-      </div>
-      <div class="button-group">
-        <button id="toggle-timer">Start</button>
-      </div>
-      <select> <!-- ตัวเลือก Frame Rate -->
-        <option>25 FPS</option>
-        <option>30 FPS</option>
-        <option>50 FPS</option>
-        <option>60 FPS</option>
-      </select>
-    </section>
+<section id="time-control">
+  <div id="timer-display">
+    <span class="time-part">00</span>
+    <span class="colon">:</span>
+    <span class="time-part">00</span>
+    <span class="colon">:</span>
+    <span class="time-part">00</span>
+    <span class="colon">:</span>
+    <span class="time-part">00</span>
+  </div>
+  <div class="button-group">
+    <button id="toggle-timer">Start</button>
+    <select class="fps-select">
+      <option value="25">25 FPS</option>
+      <option value="30">30 FPS</option>
+      <option value="50">50 FPS</option>
+      <option value="60">60 FPS</option>
+    </select>
+  </div>
+</section>
+
 
     <section id="comment-section"> <!-- ส่วนปุ่มคอมเมนต์ต่างๆ -->
       <div class="comment-actions">
@@ -181,4 +182,5 @@
 
 </body>
 </html>
+
 
