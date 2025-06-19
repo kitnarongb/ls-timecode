@@ -14,6 +14,12 @@ const clearButton = document.querySelector('.table-footer button');
 const logStartEl = document.getElementById('log-session-start');
 const logTotalComment = document.getElementById('log-total-comment');
 
+// Warn before refresh/close
+window.addEventListener('beforeunload', function (e) {
+  e.preventDefault();
+  e.returnValue = 'มีการบันทึกข้อมูลไว้ หากรีเฟรชหรือปิดหน้าจะสูญหาย';
+});
+
 // Utils
 function formatTimestamp(frame, fps) {
   const totalSeconds = Math.floor(frame / fps);
