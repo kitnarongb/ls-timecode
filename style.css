@@ -182,10 +182,12 @@ button.export-button:hover {
 }
 
 /* Section: Table Display */
+
+
 #table-section {
   width: 100%;
-  max-width: 480px;
-  margin: 16px auto 24px;
+  max-width: 400px;
+  margin: 16px auto 12px;
   padding: 16px;
   background: linear-gradient(122.82deg, rgba(57, 48, 98, 0.6) 1.66%, rgba(40, 30, 73, 0.6) 104.61%);
   border-radius: 16px;
@@ -245,6 +247,7 @@ button.export-button:hover {
   font-size: 14px;
 }
 
+
 #timestamp-table th,
 #timestamp-table td {
   padding: 4px 8px;
@@ -279,8 +282,8 @@ button.export-button:hover {
   gap: 20px;
   text-align: center;
   width: 100%;
-  max-width: 480px;
-  margin: 0 auto 24px;
+  max-width: 400px;
+  margin: 0 auto 12px;
   background: linear-gradient(122.82deg, rgba(57, 48, 98, 0.6) 1.66%, rgba(40, 30, 73, 0.6) 104.61%);
   padding: 16px;
   border-radius: 16px;
@@ -351,6 +354,73 @@ button.export-button:hover {
   box-shadow: 0 0 0 2px rgba(168, 137, 255, 0.3);
   color: #ffffff;
 }
+
+/* ... ส่วนอื่น ๆ คงไว้ดังเดิม ... */
+
+/* Section: Comment Section ใช้ดีไซน์เดียวกับ Time Control */
+#comment-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 12px;
+  box-sizing: border-box;
+  background: none; /* ลบกล่องพื้นหลังออก */
+}
+
+#comment-section .comment-actions,
+#comment-section .comment-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  background: none; /* ลบกล่องพื้นหลังออก */
+  box-shadow: none;
+}
+
+#comment-section button {
+  background: #6750A4CC;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: 12px;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex: 1;
+}
+
+#comment-section button:hover {
+  background-color: rgba(128, 0, 255, 0.2);
+}
+
+#comment-section .comment-group {
+  grid-column: span 2;
+  justify-content: center;
+  width: 100%;
+}
+
+#comment-section .comment-group input {
+  flex: 2;
+  padding: 10px 16px;
+  border-radius: 24px;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background: #fff; /* เปลี่ยนพื้นหลัง input ให้ขาวธรรมดา */
+  color: #333;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#comment-section .comment-group input:focus {
+  outline: none;
+  background-color: #f0f0f0;
+  box-shadow: 0 0 0 2px rgba(168, 137, 255, 0.3);
+}
+
 
 
 /* Responsive */
