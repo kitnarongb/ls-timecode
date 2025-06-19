@@ -1,5 +1,3 @@
-/* Layout หลัก: แนวตั้ง, กึ่งกลาง, รองรับ Responsive */
-
 body {
   background: linear-gradient(144.83deg, #17002E 1.82%, #161726 51.96%, #1C003D 95.78%);
   font-family: 'Montserrat', sans-serif;
@@ -11,46 +9,22 @@ body {
   color: #ffffff;
 }
 
-.container {
-  width: 100%;
-  max-width: 420px;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-header, main > section, footer {
-  background: transparent;
-  border-radius: 16px;
-  margin-bottom: 24px;
-  width: 100%;
-  box-sizing: border-box;
-  color: #ffffff;
-}
-
 header {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 6px 12px;
+  padding: 6px 12px 4px;
   background: linear-gradient(122.82deg, rgba(57, 48, 98, 0.6) 1.66%, rgba(40, 30, 73, 0.6) 104.61%);
   margin-bottom: 0;
-  padding-bottom: 4px;
-}
-
-#session-setting-wrapper {
-  padding-top: 0;
-  margin-top: 0;
+  width: 100%;
+  box-sizing: border-box;
+  color: #ffffff;
 }
 
 .header-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: nowrap;
   gap: 16px;
 }
 
@@ -110,30 +84,34 @@ button.export-button:hover {
   background-color: #856dff;
 }
 
-/* Session Setting */
-#session-setting {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  border-radius: 0;
-  box-sizing: border-box;
-}
+#project-setting-wrapper {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    #projectForm {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    .form-group input,
+    .form-group select {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    .form-group:nth-child(3) {
+      grid-column: 1 / 3;
+    }
 
-#session-setting .form-group {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 8px;
-  margin-bottom: 8px;
-}
-
-#session-setting input {
-  width: 100%;
-  min-width: 320px;
-  max-width: 100%;
+/* project Setting */
+ #project-setting input,
+#project-setting select {
   padding: 6px 12px;
   border: none;
   border-radius: 24px;
@@ -144,26 +122,16 @@ button.export-button:hover {
   transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
   box-sizing: border-box;
 }
-
-#session-setting input:focus,
-#session-setting input:not(:placeholder-shown) {
+#project-setting input:focus,
+#project-setting input:not(:placeholder-shown),
+#project-setting select:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(168, 137, 255, 0.3);
   color: #ffffff;
 }
-
-#session-setting select {
-  width: 100%;
-  min-width: 320px;
-  max-width: 100%;
-  padding: 6px 12px;
+#project-setting select {
   padding-right: 36px;
-  border: none;
-  border-radius: 24px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #727272;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-  box-sizing: border-box;
   appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="16" viewBox="0 0 24 24" width="16" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
   background-repeat: no-repeat;
@@ -171,79 +139,8 @@ button.export-button:hover {
   background-size: 16px;
 }
 
-#session-setting select:valid {
+#project-setting select:valid {
   color: #ffffff;
-}
-
-#session-setting input:focus,
-#session-setting select:focus,
-#session-setting input:not(:placeholder-shown),
-#session-setting input:focus,
-#session-setting select:focus {
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 2px rgba(168, 137, 255, 0.3);
-}
-
-/* Section: Time Control */
-#time-control {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  text-align: center;
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto 24px;
-  background: linear-gradient(122.82deg, rgba(57, 48, 98, 0.6) 1.66%, rgba(40, 30, 73, 0.6) 104.61%);
-  padding: 16px;
-  border-radius: 16px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-  box-sizing: border-box;
-}
-
-#timer-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-  font-size: 48px;
-  font-weight: 100;
-  font-family: 'Montserrat', monospace;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-#timer-display .colon {
-  opacity: 0.7;
-  margin: 0 2px;
-}
-
-
-#time-control button {
-  background: #6750A4CC;
-  border: none;
-  color: white;
-  padding: 10px 16px;
-  font-size: 14px;
-  border-radius: 8px;
-  font-family: 'Montserrat';
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  margin: 0;
-}
-
-#time-control .button-group {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
-}
-
-#time-control button:hover {
-  background-color: rgba(128, 0, 255, 0.2);
 }
 
 /* Section: Table Display */
@@ -308,7 +205,6 @@ button.export-button:hover {
   font-size: 12px;
 }
 
-
 #timestamp-table th {
   font-weight: 300;
   font-size: 14px;
@@ -327,35 +223,9 @@ button.export-button:hover {
 
 /* Responsive */
 @media (max-width: 600px) {
-  .container {
-    padding: 0 8px;
-  }
-
   .header-row {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 12px;
   }
-
-  .header-actions {
-    margin-left: auto;
-  }
-
-  #session-setting .form-group {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  #session-setting label {
-    flex: none;
-    width: 100%;
-  }
-
-  #session-setting input,
-  #session-setting select {
-    width: 100%;
-  }
-}  
-
-
-
+}
