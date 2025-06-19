@@ -450,3 +450,18 @@ function showConfirmModal(message, onConfirm, options = null) {
   document.body.appendChild(modal);
 }
 
+// ปุ่ม Fullscreen (สามารถผูกกับปุ่มหรือเรียกใช้ตรง ๆ)
+const fullScreenButton = document.createElement('button');
+fullScreenButton.textContent = 'Fullscreen';
+fullScreenButton.style.position = 'fixed';
+fullScreenButton.style.bottom = '20px';
+fullScreenButton.style.right = '20px';
+fullScreenButton.style.padding = '8px 16px';
+fullScreenButton.style.borderRadius = '8px';
+fullScreenButton.style.border = 'none';
+fullScreenButton.style.background = '#6a47ff';
+fullScreenButton.style.color = '#fff';
+fullScreenButton.style.cursor = 'pointer';
+fullScreenButton.style.zIndex = '10000';
+fullScreenButton.onclick = toggleFullScreen;
+document.body.appendChild(fullScreenButton);
