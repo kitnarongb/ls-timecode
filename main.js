@@ -46,7 +46,8 @@ function tick() {
 function startTimer() {
   startTime = Date.now() - (frameCount / fps) * 1000;
   animationFrameId = requestAnimationFrame(tick);
-  toggleButton.textContent = 'Pause';
+  toggleButton.textContent = 'Stop';
+  toggleButton.style.backgroundColor = '#ff4d4d'; // ✅ เปลี่ยนสีเป็นแดง
   isRunning = true;
   logStartEl.textContent = new Date().toLocaleTimeString();
 }
@@ -54,6 +55,7 @@ function startTimer() {
 function stopTimer() {
   cancelAnimationFrame(animationFrameId);
   toggleButton.textContent = 'Record';
+  toggleButton.style.backgroundColor = ''; // ✅ คืนค่าสีเดิม
   isRunning = false;
 }
 
