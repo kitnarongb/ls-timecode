@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>LS QUICKMARK (MVP)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="header-row">
+      <span class="brand-title">LS QUICKMARK (MVP)</span>
+      <div class="header-actions">
+        <button class="import-button">Import</button>
+        <button class="export-button">Export</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="project-setting-wrapper">
+      <section id="project-setting">
+        <form id="projectForm">
+          <div class="form-group">
+            <input type="text" id="projectBU" name="ProjectBU" placeholder="BU" />
+          </div>
+          <div class="form-group">
+            <select name="projectType" required>
+              <option value="" disabled selected>Type</option>
+              <option value="E-Learning">E-Learning</option>
+              <option value="Workshop">Workshop</option>
+              <option value="Interview">Interview</option>
+              <option value="Podcast">Podcast</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <input type="text" id="projectName" name="projectName" placeholder="Name" />
+          </div>
+          <div class="form-group">
+            <input type="text" id="projectNumber" name="projectNumber" placeholder="No." />
+          </div>
+          <div class="form-group">
+            <input type="date" id="projectDate" name="projectDate" placeholder="Date" />
+          </div>
+          <div class="form-group">
+            <select name="timecode" required>
+              <option value="" disabled selected>Timecode</option>
+              <option value="CAP">CAP</option>
+              <option value="CAM">CAM</option>
+              <option value="SW">SW</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select name="sound" required>
+              <option value="" disabled selected>Sound</option>
+              <option value="CAP">CAP</option>
+              <option value="CAM">CAM</option>
+              <option value="SW">SW</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select name="videographer" required>
+              <option value="" disabled selected>Videographer</option>
+              <option value="Wanattapong">Wanattapong</option>
+              <option value="Nattarin">Nattarin</option>
+              <option value="Ponlapat">Ponlapat</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select name="editor" required>
+              <option value="" disabled selected>Editor</option>
+              <option value="Wanat">Wanat</option>
+              <option value="Kitnarong">Kitnarong</option>
+              <option value="Chakrin">Chakrin</option>
+              <option value="Sasithorn">Sasithorn</option>
+              <option value="Kemmachart">Kemmachart</option>
+            </select>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <section id="table-section">
+      <table id="timestamp-table">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="table-footer">
+        <button>Clear</button>
+        <button>Undo</button>
+      </div>
+    </section>
+
+    <section id="time-control">
+      <div id="timer-display">
+        <span class="time-part">00</span>
+        <span class="colon">:</span>
+        <span class="time-part">00</span>
+        <span class="colon">:</span>
+        <span class="time-part">00</span>
+        <span class="colon">:</span>
+        <span class="time-part">00</span>
+      </div>
+      <div class="button-group">
+        <button id="toggle-timer">Record</button>
+        <select class="fps-select">
+          <option value="25">25 FPS</option>
+          <option value="30">30 FPS</option>
+          <option value="50">50 FPS</option>
+          <option value="60">60 FPS</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="comment-section">
+      <div class="comment-actions">
+        <button id="star-comment">Start</button>
+      </div>
+      <div class="comment-actions">
+        <button id="end-comment">End</button>
+      </div>
+      <div class="comment-actions">
+        <button id="deadair-comment">Dead Air</button>
+      </div>
+      <div class="comment-actions">
+        <button id="techError-comment">Tech Error</button>
+      </div>
+      <div class="comment-actions">
+        <button id="activity-comment">Activity</button>
+      </div>
+      <div class="comment-actions">
+        <button id="note-comment">Note</button>
+      </div>
+      <div class="comment-group">
+        <input type="text" placeholder="Custom Comment" />
+        <button>Send</button>
+      </div>
+    </section>
+
+    <section id="log-section">
+      <div id="log-info">
+        <div>Session Record: <span id="log-session-start">-</span></div>
+        <div>Total Comment: <span id="log-total-comment">0</span></div>
+      </div>
+      <div id="log-list"></div>
+    </section>
+
+    <section id="fullscreen">
+      <div class="fullscreen-actions">
+        <button id="fullscreen-actions">fullscreen</button>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Powered By LEARN STUDIO
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
